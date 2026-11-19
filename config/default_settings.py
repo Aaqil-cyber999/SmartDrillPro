@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
 from config.application_config import (
@@ -23,10 +23,18 @@ class AppSettings:
     serial_timeout_s: float = DEFAULT_SERIAL_TIMEOUT_S
     status_poll_ms: int = DEFAULT_STATUS_POLL_MS
 
+    # FlatCAM headless worker. Empty values mean "auto-detect under tools/flatcam".
+    flatcam_python: str = ""
+    flatcam_root: str = ""
+
     # Safety limits. These are starting values only and must be calibrated.
     max_cut_depth_mm: float = 2.0
     max_feed_rate_mm_min: int = 1000
     max_plunge_rate_mm_min: int = 300
+
+    # Active machine profile is persisted with preferences so calibration
+    # survives restarts. Default remains the unverified example profile.
+    machine_profile: dict = field(default_factory=dict)
 
     def to_dict(self) -> dict:
         return asdict(self)

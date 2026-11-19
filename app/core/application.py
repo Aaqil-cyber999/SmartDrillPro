@@ -12,7 +12,9 @@ from pathlib import Path
 
 from app.core.event_manager import EventManager
 from app.core.logging_manager import setup_logging
+from app.cam.cam_service import CamService
 from app.core.project_manager import ProjectManager
+from app.machine.machine_service import MachineService
 from app.services.import_service import ImportService
 from config.application_config import data_paths, resolve_data_dir
 from config.default_settings import AppSettings, settings_path
@@ -30,7 +32,9 @@ class Application:
         self.active_profile: MachineProfile = self.machine_profiles[0]
         self.projects = ProjectManager(self.paths["projects"], self.events)
         self.importer = ImportService(self.projects)
+        self.cam = CamService(self)
         self.force_simulation = simulation
+        self.machine = MachineService(self)
 
     def initialize(self) -> None:
         self.log = setup_logging(self.paths["logs"])
@@ -43,6 +47,9 @@ class Application:
             return
         try:
             self.settings = AppSettings.from_dict(json.loads(path.read_text(encoding="utf-8")))
+            if self.settings.machine_profile:
+                self.active_profile = MachineProfile.from_dict(self.settings.machine_profile)
+                self.machine_profiles = [self.active_profile]
         except (OSError, ValueError, json.JSONDecodeError) as exc:
             self.log.warning("Using default settings; could not read %s: %s", path, exc)
 
@@ -51,6 +58,7 @@ class Application:
         return self.force_simulation or self.settings.simulation_mode
 
     def save_settings(self) -> None:
+        self.settings.machine_profile = self.active_profile.to_dict()
         path = settings_path(self.data_dir)
         path.write_text(json.dumps(self.settings.to_dict(), indent=2), encoding="utf-8")
         self.events.emit("settings_changed", self.settings)

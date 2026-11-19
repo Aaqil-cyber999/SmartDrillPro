@@ -52,6 +52,8 @@ class PcbProject:
     modified_at: str = field(default_factory=utc_now)
     source_files: list[SourceFile] = field(default_factory=list)
     layers: list[dict] = field(default_factory=list)
+    cam_jobs: list[dict] = field(default_factory=list)
+    machine_jobs: list[dict] = field(default_factory=list)
     machining_settings: dict = field(default_factory=dict)
     machine_profile: str = "Unverified Example"
     warnings: list[str] = field(default_factory=list)
