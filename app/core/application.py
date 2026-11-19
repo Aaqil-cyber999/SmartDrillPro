@@ -13,6 +13,7 @@ from pathlib import Path
 from app.core.event_manager import EventManager
 from app.core.logging_manager import setup_logging
 from app.core.project_manager import ProjectManager
+from app.services.import_service import ImportService
 from config.application_config import data_paths, resolve_data_dir
 from config.default_settings import AppSettings, settings_path
 from config.machine_profiles import MachineProfile, built_in_profiles
@@ -28,6 +29,7 @@ class Application:
         self.machine_profiles: list[MachineProfile] = built_in_profiles()
         self.active_profile: MachineProfile = self.machine_profiles[0]
         self.projects = ProjectManager(self.paths["projects"], self.events)
+        self.importer = ImportService(self.projects)
         self.force_simulation = simulation
 
     def initialize(self) -> None:

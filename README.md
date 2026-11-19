@@ -14,7 +14,7 @@ The user works in one application. The mature open-source engines (FlatCAM for C
 | --- | --- |
 | 1 – Technical investigation and architecture | Complete |
 | 2 – Basic desktop application | Complete ([report](docs/07_phase2_report.md)) |
-| 3 – PCB file import | Not started |
+| 3 – PCB file import | Complete ([report](docs/08_phase3_report.md)) |
 | 4 – PCB visualization | Not started |
 | 5 – CAM engine integration | Not started |
 | 6 – G-code generation and validation | Not started |
@@ -30,6 +30,8 @@ The user works in one application. The mature open-source engines (FlatCAM for C
 - [Development roadmap](docs/04_roadmap.md)
 - [Module interfaces](docs/05_module_interfaces.md)
 - [Technical decisions and risks](docs/06_risks_and_decisions.md)
+- [Phase 2 report](docs/07_phase2_report.md)
+- [Phase 3 report](docs/08_phase3_report.md)
 
 ## Repository layout
 

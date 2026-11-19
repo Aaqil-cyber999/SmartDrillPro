@@ -1,0 +1,7 @@
+G04 Front solder mask sample*
+%FSLAX46Y46*%
+%MOMM*%
+%ADD10C,1.600*%
+D10*
+X15000000Y12500000D03*
+M02*

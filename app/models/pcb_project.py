@@ -26,13 +26,20 @@ def slugify(name: str) -> str:
 
 @dataclass
 class SourceFile:
-    """Record of one uploaded file. Layer roles are added in Phase 3."""
+    """Record of one uploaded manufacturing file plus detected metadata."""
 
     name: str
     relative_path: str
     size_bytes: int
     sha256: str
     content_type: str = "unknown"
+    layer_role: str = "other"
+    layer_confidence: float = 0.0
+    layer_reason: str = ""
+    bounds: list[float] = field(default_factory=list)
+    feature_count: int = 0
+    drill_tools: list[dict] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
     added_at: str = field(default_factory=utc_now)
 
 

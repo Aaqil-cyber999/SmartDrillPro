@@ -16,12 +16,12 @@ Each phase ends with a testable deliverable and a commit. Major architecture cha
 - Implement Dashboard, New Project and a basic File Manager shell (real upload behavior arrives in Phase 3).
 - Deliverable: `python main.py` launches a professional-looking window with working navigation and project creation. See [Phase 2 report](07_phase2_report.md). Result: 8 tests passing.
 
-## Phase 3 — PCB file import ⏳
+## Phase 3 — PCB file import ✅ Complete
 
 - Wire Gerbonara into `file_processing/gerber_parser.py` and `excellon_parser.py`.
 - Implement content validation, duplicate detection, ZIP/folder import, layer classification and manual overrides.
 - Add real sample Gerber/Excellon files to `resources/sample_projects/`.
-- Deliverable: a project can be created, files imported, layers identified, and problems reported clearly.
+- Deliverable: a project can be created, files imported, layers identified, and problems reported clearly. See [Phase 3 report](08_phase3_report.md). Result: 16 tests passing.
 
 ## Phase 4 — PCB visualization ⏳
 
