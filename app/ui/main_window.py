@@ -17,9 +17,14 @@ from PySide6.QtWidgets import (
 )
 
 from app.core.application import Application
+from app.ui.pages.cam_processing import CamProcessingPage
 from app.ui.pages.dashboard import DashboardPage
 from app.ui.pages.file_manager import FileManagerPage
-from app.ui.pages.placeholder import PlaceholderPage
+from app.ui.pages.gcode_preview import GcodePreviewPage
+from app.ui.pages.job_history import JobHistoryPage
+from app.ui.pages.machine_config import MachineConfigPage
+from app.ui.pages.machine_control import MachineControlPage
+from app.ui.pages.settings_page import SettingsPage
 from app.ui.pages.pcb_viewer import PcbViewerPage
 from app.ui.pages.project_page import ProjectPage
 from config.application_config import APP_NAME, APP_VERSION, PROJECT_ROOT
@@ -70,42 +75,12 @@ class MainWindow(QMainWindow):
         self.pages["project"] = ProjectPage(core)
         self.pages["files"] = FileManagerPage(core)
         self.pages["viewer"] = PcbViewerPage(core)
-        self.pages["cam"] = PlaceholderPage(
-            "CAM Processing",
-            "Phase 5",
-            "Isolation routing, drilling and outline toolpaths will be generated through the "
-            "FlatCAM headless worker using settings from an editable machine profile.",
-        )
-        self.pages["gcode"] = PlaceholderPage(
-            "G-code Preview",
-            "Phase 6",
-            "Validated G-code will be shown as colored rapid, cutting, travel and drilling moves, "
-            "with bounds, estimated time and per-operation inspection.",
-        )
-        self.pages["machine"] = PlaceholderPage(
-            "Machine Control",
-            "Phase 7",
-            "Connection, status, jogging, homing, zeroing, job progress, feed hold, resume and "
-            "cancel will be implemented first against a simulated grblHAL controller.",
-        )
-        self.pages["history"] = PlaceholderPage(
-            "Job History",
-            "Phase 7",
-            "Completed and cancelled jobs will be recorded in the project with their settings, "
-            "G-code files and results.",
-        )
-        self.pages["machine_config"] = PlaceholderPage(
-            "Machine Configuration",
-            "Phase 8",
-            "Editable steps/mm, travel limits, feed/acceleration, homing, limits and spindle "
-            "settings will be validated against the real grblHAL build.",
-        )
-        self.pages["settings"] = PlaceholderPage(
-            "Settings",
-            "Phase 7",
-            "Application preferences and safety limits will be editable here. Current values "
-            "are stored in settings.json in the data directory.",
-        )
+        self.pages["cam"] = CamProcessingPage(core)
+        self.pages["gcode"] = GcodePreviewPage(core)
+        self.pages["machine"] = MachineControlPage(core)
+        self.pages["history"] = JobHistoryPage(core)
+        self.pages["machine_config"] = MachineConfigPage(core)
+        self.pages["settings"] = SettingsPage(core)
         for _, key in NAVIGATION:
             self.stack.addWidget(self.pages[key])
         main_layout.addWidget(self.stack)

@@ -41,6 +41,19 @@ class MachineProfile:
         known = {key: data[key] for key in cls.__dataclass_fields__ if key in data}
         return cls(**known)
 
+    def validate(self) -> None:
+        if not self.name.strip():
+            raise ValueError("Machine profile needs a name.")
+        for axis in ("X", "Y", "Z"):
+            for label, values in (
+                ("steps/mm", self.steps_per_mm),
+                ("travel", self.max_travel_mm),
+                ("feed", self.max_feed_mm_min),
+                ("acceleration", self.max_accel_mm_s2),
+            ):
+                if float(values.get(axis, 0.0)) <= 0:
+                    raise ValueError(f"{axis} {label} must be greater than zero.")
+
 
 def example_profile() -> MachineProfile:
     return MachineProfile(name="Unverified Example")
