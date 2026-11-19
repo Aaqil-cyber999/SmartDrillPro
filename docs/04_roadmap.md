@@ -29,38 +29,41 @@ Each phase ends with a testable deliverable and a commit. Major architecture cha
 - Layer toggles, colors, zoom/pan/fit, measurements, dimensions and drill markers.
 - Deliverable: real uploaded PCB geometry is displayed (no placeholder images). See [Phase 4 report](09_phase4_report.md). Result: 18 tests passing.
 
-## Phase 5 — CAM engine integration ⏳
+## Phase 5 — CAM engine integration ✅ Complete
 
 - Build and validate the FlatCAM worker environment (Python 3.10).
 - Implement `FlatcamAdapter` script generation, execution, timeout handling and result parsing.
 - Implement isolation, drilling and outline operations with configurable parameters.
-- Deliverable: uploaded files produce real toolpaths and G-code through FlatCAM.
+- Real FlatCAM integration produces non-empty G-code with safe modal/end codes.
+- Deliverable: uploaded files produce real toolpaths and G-code through FlatCAM. See [Phase 5 report](10_phase5_report.md).
 
-## Phase 6 — G-code generation, validation and preview ⏳
+## Phase 6 — G-code generation, validation and preview ✅ Complete
 
 - Normalize and validate FlatCAM G-code; add safe startup/end sequences where needed.
-- Parser for movement reconstruction, boundary/time estimates, unsupported-command checks.
-- Preview screen with rapid/cut/travel colors and per-operation inspection.
-- Deliverable: generated G-code can be inspected and exported, but never auto-executed.
+- Parser for movement reconstruction, bounds/time estimates, unsupported-command checks.
+- Preview screen with rapid/cut/plunge colors, report and validated-copy export.
+- Deliverable: generated G-code can be inspected and exported, but never auto-executed. See [Phase 6 report](11_phase6_report.md).
 
-## Phase 7 — CNC communication ⏳
+## Phase 7 — CNC communication ✅ Complete
 
 - Serial port detection, connection settings, controller identification (`$I`, `$$`).
-- Line-based streaming with 128-byte RX budget, `ok`/`error` handling, real-time commands, status polling, pause/resume/cancel, jog, home, zero.
-- Simulated controller and tests for all states.
-- Deliverable: SmartDrill Pro executes a validated job against the simulator.
+- Line-based streaming with 128-byte RX budget, `ok`/`error` handling, real-time commands, status polling, feed hold/resume/soft reset, jog, home, zero.
+- Simulated controller and thread-safe job progress/history.
+- Running a job requires a re-validated `*.validated.nc` copy and explicit confirmation.
+- Deliverable: SmartDrill Pro executes a validated job against the simulator. See [Phase 7 report](12_phase7_report.md).
 
-## Phase 8 — Hardware integration ⏳
+## Phase 8 — Hardware integration ⚠️ UNVERIFIED
 
-- Install grblHAL on ESP32-S3 using a verified board map; configure steps/mm, limits, homing, spindle.
-- Safe low-power motion tests, then progressive real cutting tests.
-- Deliverable: verified machine control with documented configuration.
+- Editable machine profile, safety limits and controller identification UI.
+- Hardware setup checklist for ESP32-S3/grblHAL.
+- **No physical hardware was connected during development. Real machine behaviour is UNVERIFIED.**
+- See [Phase 8 report](13_phase8_report.md) and [hardware setup checklist](14_hardware_setup.md).
 
-## Phase 9 — Testing and packaging ⏳
+## Phase 9 — Testing and packaging ✅ Complete
 
-- Full test suite, sample projects, error recovery tests, PyInstaller build.
-- Third-party notices and installer.
-- Deliverable: a working Windows desktop application.
+- Full test suite, sample projects, error recovery and offscreen UI smoke test.
+- PyInstaller Windows build script, license and third-party notices.
+- Deliverable: a working Windows desktop application workflow with documented build steps. See [Phase 9 report](15_phase9_report.md).
 
 ## Definition of "done" for a phase
 

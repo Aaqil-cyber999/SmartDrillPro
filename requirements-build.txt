@@ -1,0 +1,2 @@
+# Packaging tools (install into .venv before running scripts/build_windows.ps1)
+pyinstaller>=6.0,<7
