@@ -20,6 +20,7 @@ from app.core.application import Application
 from app.ui.pages.dashboard import DashboardPage
 from app.ui.pages.file_manager import FileManagerPage
 from app.ui.pages.placeholder import PlaceholderPage
+from app.ui.pages.pcb_viewer import PcbViewerPage
 from app.ui.pages.project_page import ProjectPage
 from config.application_config import APP_NAME, APP_VERSION, PROJECT_ROOT
 
@@ -68,12 +69,7 @@ class MainWindow(QMainWindow):
         self.pages["dashboard"].navigate_requested.connect(self.navigate_to)
         self.pages["project"] = ProjectPage(core)
         self.pages["files"] = FileManagerPage(core)
-        self.pages["viewer"] = PlaceholderPage(
-            "PCB Viewer",
-            "Phase 4",
-            "Real parsed Gerber copper, outline and Excellon drill geometry will be drawn here "
-            "with layer toggles, zoom, pan, measurement and board dimensions.",
-        )
+        self.pages["viewer"] = PcbViewerPage(core)
         self.pages["cam"] = PlaceholderPage(
             "CAM Processing",
             "Phase 5",

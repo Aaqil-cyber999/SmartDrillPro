@@ -23,11 +23,11 @@ Each phase ends with a testable deliverable and a commit. Major architecture cha
 - Add real sample Gerber/Excellon files to `resources/sample_projects/`.
 - Deliverable: a project can be created, files imported, layers identified, and problems reported clearly. See [Phase 3 report](08_phase3_report.md). Result: 16 tests passing.
 
-## Phase 4 — PCB visualization ⏳
+## Phase 4 — PCB visualization ✅ Complete
 
 - Convert parsed geometry into Shapely/QGraphicsView items.
 - Layer toggles, colors, zoom/pan/fit, measurements, dimensions and drill markers.
-- Deliverable: real uploaded PCB geometry is displayed (no placeholder images).
+- Deliverable: real uploaded PCB geometry is displayed (no placeholder images). See [Phase 4 report](09_phase4_report.md). Result: 18 tests passing.
 
 ## Phase 5 — CAM engine integration ⏳
 
