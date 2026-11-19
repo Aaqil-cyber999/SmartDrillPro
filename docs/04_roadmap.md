@@ -9,12 +9,12 @@ Each phase ends with a testable deliverable and a commit. Major architecture cha
 - Selected a two-process architecture (PySide6 main app + FlatCAM headless worker).
 - Deliverables: [research report](01_research_report.md), [architecture](02_architecture.md), [license plan](03_licensing.md), [interfaces](05_module_interfaces.md), [risks](06_risks_and_decisions.md).
 
-## Phase 2 — Basic desktop application 🔄 In progress
+## Phase 2 — Basic desktop application ✅ Complete
 
 - Create Python 3.12 environment and dependency files.
 - Implement `main.py`, application bootstrap, event bus, logging, settings, main window and navigation.
 - Implement Dashboard, New Project and a basic File Manager shell (real upload behavior arrives in Phase 3).
-- Deliverable: `python main.py` launches a professional-looking window with working navigation and project creation.
+- Deliverable: `python main.py` launches a professional-looking window with working navigation and project creation. See [Phase 2 report](07_phase2_report.md). Result: 8 tests passing.
 
 ## Phase 3 — PCB file import ⏳
 

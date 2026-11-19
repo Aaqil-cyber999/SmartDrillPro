@@ -13,7 +13,7 @@ The user works in one application. The mature open-source engines (FlatCAM for C
 | Phase | Status |
 | --- | --- |
 | 1 – Technical investigation and architecture | Complete |
-| 2 – Basic desktop application | In progress |
+| 2 – Basic desktop application | Complete ([report](docs/07_phase2_report.md)) |
 | 3 – PCB file import | Not started |
 | 4 – PCB visualization | Not started |
 | 5 – CAM engine integration | Not started |
