@@ -1,0 +1,18 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "cccccccc-cccc-4ccc-8ccc-ccccccccccc1")
+	(paper "A4")
+	(title_block
+		(title "SmartDrill Pro example board")
+		(date "2026-11-19")
+		(rev "1.0")
+		(comment 1 "Schematic is intentionally empty: the PCB is a simple fabricated test coupon.")
+	)
+	(lib_symbols)
+	(sheet_instances
+		(path "/" (page "1"))
+	)
+	(embedded_fonts no)
+)

@@ -43,6 +43,7 @@ Real CAM requires the separate FlatCAM worker described in [INSTALL.md](INSTALL.
 - [Technical decisions and risks](docs/06_risks_and_decisions.md)
 - [Hardware setup checklist (UNVERIFIED)](docs/14_hardware_setup.md)
 - [Third-party notices](THIRD_PARTY_NOTICES.md)
+- [Example KiCad board → SmartDrill Pro walkthrough](resources/sample_projects/simple_board/README.md)
 
 ## Repository layout
 
@@ -79,5 +80,6 @@ Python **3.12** runs the main application. The FlatCAM worker uses its own **Pyt
 ```powershell
 .\.venv\Scripts\python -m pytest -q
 .\.venv\Scripts\python -m pytest -q -m integration -s
+.\.venv\Scripts\python scripts\example_walkthrough.py
 powershell -ExecutionPolicy Bypass -File scripts\build_windows.ps1
 ```

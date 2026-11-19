@@ -16,6 +16,7 @@ tools/worker_output/
 data/projects/
 data/generated_gcode/
 data/logs/
+data/example_walkthrough/
 *.log
 
 # Packaging / OS

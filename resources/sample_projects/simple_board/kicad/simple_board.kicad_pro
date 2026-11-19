@@ -1,0 +1,15 @@
+{
+  "board": {
+    "design_settings": {
+      "defaults": {
+        "board_outline_line_width": 0.1,
+        "copper_line_width": 0.25
+      }
+    }
+  },
+  "meta": {
+    "filename": "simple_board.kicad_pro",
+    "version": 1
+  },
+  "schematic": {}
+}
