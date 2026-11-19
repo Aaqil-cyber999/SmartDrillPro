@@ -6,8 +6,11 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .venv/
+.venv-flatcam/
 venv/
 env/
+tools/flatcam/
+tools/worker_output/
 
 # Application data
 data/projects/

@@ -11,3 +11,6 @@ smartdrill-pro = "main:main"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra"
+markers = [
+    "integration: tests that require the optional FlatCAM worker or real hardware",
+]
